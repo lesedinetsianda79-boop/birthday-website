@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Amogelang</title>
+
+<style>
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* MOBILE FIRST DESIGN */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    overflow-x: hidden;
+}
+
+/* PAGE 1 */
+.page1 {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: white;
+    text-align: center;
+}
+
+/* 5 BACKGROUND IMAGES SIDE BY SIDE */
+.background-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    z-index: -1;
+}
+
+.background-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Pink overlay */
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 105, 180, 0.5);
+    z-index: -1;
+}
+
+/* Text styling */
+.page1 h1 {
+    font-size: 22px;
+    padding: 20px;
+    background: rgba(0,0,0,0.4);
+    border-radius: 15px;
+}
+
+/* Button */
+.button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: #ff69b4;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.button:active {
+    transform: scale(0.95);
+}
+
+/* PAGE 2 */
+.page2 {
+    display: none;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #ffe6f2, #f8c8ff);
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.page2 h2 {
+    color: #d63384;
+    margin-bottom: 15px;
+}
+
+.message {
+    font-size: 15px;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* IMAGE SLOTS */
+.image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.image-gallery img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 3px solid #ff69b4;
+}
+
+/* FLOATING HEARTS */
+.heart {
+    position: fixed;
+    bottom: -20px;
+    font-size: 20px;
+    animation: floatUp 6s linear forwards;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-110vh);
+        opacity: 0;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+<div class="page1" id="page1">
+
+    <div class="background-grid">
+        <img src="WhatsApp Image 2026-02-12 at 19.58.42.jpeg">
+        <img src="WhatsApp Image 2026-02-12 at 19.58.43 (1).jpeg">
+        <img src="WhatsApp Image 2026-02-12 at 19.58.43.jpeg">
+        <img src="WhatsApp Image 2026-02-12 at 19.58.44 (1).jpeg">
+        <img src="WhatsApp Image 2026-02-12 at 19.58.44.jpeg">
+    </div>
+
+    <div class="overlay"></div>
+
+    <h1>🎉 Happy Birthday Amogelang Mashigo 🎉</h1>
+    <button class="button" onclick="nextPage()">Click For Surprise 💖</button>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page2" id="page2">
+    <h2>Happy Birthday Amogelang Mashigo 💕</h2>
+
+    <p class="message">
+    Happy birthday Amogelang Mashigo I just want you to know how grateful we are that you came in to our lives you’ve been like a sister to us and we will keep on protecting until the casket drops we’ve experienced a lot of fights between us but that’s just shows how much we care for each other we always want you to remember that we will also choose you to be our sister today, tomorrow and forever  
+    <br><br>
+    Once Again Happy Birthday Amo love your brothers  
+    Katlego and Lebo ❤️
+    </p>
+
+    <div class="image-gallery">
+        <img src="WhatsApp Image 2026-02-12 at 19.58.44 (3).jpeg">
+        <img src="WhatsApp Image 2026-02-12 at 19.59.39.jpeg">
+        <img src="WhatsApp Image 2026-02-12 at 19.58.44 (2).jpeg">
+    </div>
+</div>
+
+<script>
+
+function nextPage() {
+    document.getElementById("page1").style.display = "none";
+    document.getElementById("page2").style.display = "block";
+    startHearts();
+}
+
+function startHearts() {
+    setInterval(() => {
+        let heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "💖";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = (15 + Math.random() * 25) + "px";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 6000);
+    }, 400);
+}
+
+</script>
+
+</body>
+</html>
